@@ -3,379 +3,422 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Murr Medien — Website in Arbeit</title>
-    <meta name="description"
-          content="Unser neuer Webauftritt ist in Arbeit. Kontakt: info@murrmedien.de" />
+    <title>Murr Medien</title>
 
     <style>
-          /* =========================
+            /* =========================
            FONTS
-           Voraussetzungen:
-           - ./fonts/Jost-Regular.ttf
-           - ./assets/Jost-BoldItalic.ttf
-           - ./assets/logo.png
         ========================== */
-          @font-face {
-              font-family: "Jost";
-              src: url("./fonts/Jost-Regular.ttf") format("truetype");
-              font-weight: 400;
-              font-style: normal;
-              font-display: swap;
-          }
+            @font-face {
+                font-family: "Jost";
+                src: url("./fonts/Jost-Regular.ttf") format("truetype");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+            }
 
-          @font-face {
-              font-family: "Jost Display";
-              src: url("./assets/Jost-BoldItalic.ttf") format("truetype");
-              font-weight: 700;
-              font-style: italic;
-              font-display: swap;
-          }
+            @font-face {
+                font-family: "Jost Display";
+                src: url("./assets/Jost-BoldItalic.ttf") format("truetype");
+                font-weight: 700;
+                font-style: italic;
+                font-display: swap;
+            }
 
-          /* =========================
-           THEME TOKENS
+            /* =========================
+           TOKENS
         ========================== */
-          :root {
-              --bg: #f5f5f7;
-              --text: rgba(0, 0, 0, 0.88);
-              --muted: rgba(0, 0, 0, 0.58);
-              --hairline: rgba(0, 0, 0, 0.12);
-              /* Brand colors */
-              --brand-darkblue: #1c2e4b;
-              --brand-lightblue: #619db6;
-              --brand-rose: #a6495f;
-              /* Ambient gradients from brand colors (light) */
-              --g1: color-mix(in srgb, var(--brand-lightblue) 38%, transparent);
-              --g2: color-mix(in srgb, var(--brand-rose) 26%, transparent);
-              --g3: color-mix(in srgb, var(--brand-darkblue) 22%, transparent);
-              /* Apple blue for interactive states */
-              --apple-blue: #0071e3;
-              --apple-blue-hover: #0077ed;
-              /* toggle glass */
-              --toggle-glass: rgba(255, 255, 255, 0.65);
-              --toggle-stroke: rgba(0, 0, 0, 0.12);
-              --toggle-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
-              --switch-track: rgba(0, 0, 0, 0.18);
-              --switch-knob: #ffffff;
-              /* CTA ultra subtle glass */
-              --cta-glass: rgba(255, 255, 255, 0.22);
-              --cta-stroke: rgba(0, 0, 0, 0.14);
-          }
+            :root {
+                --bg: #f5f5f7;
+                --text: rgba(0, 0, 0, 0.88);
+                --muted: rgba(0, 0, 0, 0.58);
+                --hairline: rgba(0, 0, 0, 0.12);
+                --brand-darkblue: #1c2e4b;
+                --brand-lightblue: #619db6;
+                --brand-rose: #a6495f;
+                --g1: color-mix(in srgb, var(--brand-lightblue) 36%, transparent);
+                --g2: color-mix(in srgb, var(--brand-rose) 26%, transparent);
+                --g3: color-mix(in srgb, var(--brand-darkblue) 22%, transparent);
+                --apple-blue: #0071e3;
+                --glass: rgba(255, 255, 255, 0.18);
+                --glass-border: rgba(0, 0, 0, 0.14);
+                /* toggle */
+                --toggle-glass: rgba(255, 255, 255, 0.65);
+                --toggle-border: rgba(0, 0, 0, 0.12);
+                --toggle-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+                --switch-track: rgba(0, 0, 0, 0.18);
+                --switch-knob: rgba(255, 255, 255, 0.98);
+            }
 
-          [data-theme="dark"] {
-              --bg: #0b0c0f;
-              --text: rgba(255, 255, 255, 0.92);
-              --muted: rgba(255, 255, 255, 0.65);
-              --hairline: rgba(255, 255, 255, 0.14);
-              /* Ambient gradients from brand colors (dark) */
-              --g1: color-mix(in srgb, var(--brand-lightblue) 46%, transparent);
-              --g2: color-mix(in srgb, var(--brand-rose) 34%, transparent);
-              --g3: color-mix(in srgb, var(--brand-darkblue) 38%, transparent);
-              --toggle-glass: rgba(255, 255, 255, 0.08);
-              --toggle-stroke: rgba(255, 255, 255, 0.14);
-              --toggle-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
-              --switch-track: rgba(255, 255, 255, 0.22);
-              --switch-knob: rgba(255, 255, 255, 0.95);
-              --cta-glass: rgba(255, 255, 255, 0.08);
-              --cta-stroke: rgba(255, 255, 255, 0.14);
-          }
+            [data-theme="dark"] {
+                --bg: #0b0c0f;
+                --text: rgba(255, 255, 255, 0.92);
+                --muted: rgba(255, 255, 255, 0.65);
+                --hairline: rgba(255, 255, 255, 0.14);
+                --g1: color-mix(in srgb, var(--brand-lightblue) 44%, transparent);
+                --g2: color-mix(in srgb, var(--brand-rose) 34%, transparent);
+                --g3: color-mix(in srgb, var(--brand-darkblue) 38%, transparent);
+                --glass: rgba(255, 255, 255, 0.08);
+                --glass-border: rgba(255, 255, 255, 0.14);
+                --toggle-glass: rgba(255, 255, 255, 0.08);
+                --toggle-border: rgba(255, 255, 255, 0.14);
+                --toggle-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+                --switch-track: rgba(255, 255, 255, 0.22);
+                --switch-knob: rgba(255, 255, 255, 0.95);
+            }
 
-          /* =========================
+            /* =========================
            BASE
         ========================== */
-          * {
-              box-sizing: border-box;
-          }
+            * {
+                box-sizing: border-box;
+            }
 
-          html,
-          body {
-              height: 100%;
-          }
+            body {
+                margin: 0;
+                min-height: 100vh;
+                font-family: "Jost", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                color: var(--text);
+                background: radial-gradient(900px 520px at 15% 12%, var(--g1), transparent 62%), radial-gradient(820px 640px at 85% 18%, var(--g2), transparent 66%), radial-gradient(720px 640px at 50% 92%, var(--g3), transparent 66%), var(--bg);
+            }
 
-          body {
-              margin: 0;
-              font-family: "Jost", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-              color: var(--text);
-              /* Brand ambient background */
-              background: radial-gradient(900px 520px at 16% 12%, var(--g1), transparent 62%), radial-gradient(820px 640px at 86% 18%, var(--g2), transparent 66%), radial-gradient(720px 640px at 50% 92%, var(--g3), transparent 66%), var(--bg);
-          }
-
-          /* =========================
+            /* =========================
            LAYOUT
         ========================== */
-          .page {
-              min-height: 100%;
-              display: grid;
-              grid-template-rows: auto 1fr auto;
-          }
+            .page {
+                min-height: 100vh;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+            }
 
-          .header {
-              padding: 24px 28px;
-              display: flex;
-              align-items: center;
-              justify-content: flex-start;
-          }
+            header {
+                padding: 24px 28px;
+            }
 
-          .logo {
-              height: 36px;
-              width: auto;
-              display: block;
-          }
+            .logo {
+                height: 40px;
+            }
 
-          @media (min-width: 900px) {
-              .header {
-                  padding: 28px 48px;
-              }
+            main {
+                display: grid;
+                place-items: center;
+                padding: 24px;
+            }
 
-              .logo {
-                  height: 42px;
-              }
-          }
+            .center {
+                text-align: center;
+                max-width: 640px;
+            }
 
-          .main {
-              display: grid;
-              place-items: center;
-              padding: 24px;
-          }
-
-          .center {
-              text-align: center;
-              width: min(720px, 100%);
-          }
-
-          .title {
-              margin: 0 0 10px;
-              font-family: "Jost Display", "Jost", system-ui, sans-serif;
-              font-size: clamp(36px, 5vw, 56px);
-              line-height: 1.04;
-              letter-spacing: -0.015em;
-          }
-
-          .subtitle {
-              margin: 0 0 24px;
-              font-size: 16px;
-              line-height: 1.6;
-              color: var(--muted);
-          }
-
-          /* =========================
-           CTA BUTTON (ultra subtle glass -> blue on hover/active)
+            /* =========================
+           HERO AVATARS
         ========================== */
-          .cta {
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              padding: 12px 18px;
-              border-radius: 999px;
-              background: var(--cta-glass);
-              color: var(--text);
-              border: 1px solid var(--cta-stroke);
-              backdrop-filter: blur(12px);
-              -webkit-backdrop-filter: blur(12px);
-              font-size: 14px;
-              letter-spacing: 0.01em;
-              text-decoration: none;
-              user-select: none;
-              box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-              transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
-          }
+            .hero-avatars {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 22px;
+            }
 
-              .cta:hover,
-              .cta:focus-visible {
-                  background: linear-gradient(180deg, var(--apple-blue-hover), var(--apple-blue));
-                  color: #ffffff;
-                  border-color: rgba(0, 113, 227, 0.45);
-                  box-shadow: 0 12px 34px rgba(0, 113, 227, 0.35);
-                  transform: translateY(-1px);
-              }
+            .hero-avatar {
+                width: 104px;
+                height: 104px;
+                border-radius: 999px;
+                object-fit: cover;
+                border: 2px solid rgba(255, 255, 255, 0.9);
+                outline: 1px solid rgba(0, 0, 0, 0.12);
+                outline-offset: -2px;
+                box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+                background: #fff;
+            }
 
-              .cta:active {
-                  transform: translateY(0px);
-                  box-shadow: 0 8px 22px rgba(0, 113, 227, 0.35);
-              }
+            [data-theme="dark"] .hero-avatar {
+                outline-color: rgba(255, 255, 255, 0.18);
+            }
 
-              .cta:focus-visible {
-                  outline: 3px solid rgba(0, 113, 227, 0.45);
-                  outline-offset: 3px;
-              }
+            .hero-avatar.left {
+                margin-right: -20px;
+                z-index: 2;
+            }
 
-          /* =========================
-           FOOTER (clean legal)
+            .hero-avatar.right {
+                margin-left: -20px;
+            }
+
+            /* =========================
+           TEXT
         ========================== */
-          .footer {
-              border-top: 1px solid var(--hairline);
-              padding: 18px 18px 22px;
-              font-size: 12.5px;
-              line-height: 1.55;
-              color: var(--muted);
-          }
+            .subtitle {
+                margin: 0 0 26px;
+                font-size: 16px;
+                line-height: 1.6;
+                color: var(--muted);
+            }
 
-          .footer-inner {
-              max-width: 920px;
-              margin: 0 auto;
-              display: flex;
-              flex-direction: column;
-              gap: 6px;
-          }
-
-          .footer a {
-              color: var(--text);
-              text-decoration: none;
-          }
-
-              .footer a:hover {
-                  text-decoration: underline;
-              }
-
-          /* =========================
-           GLASS TOGGLE (desktop bottom-right, mobile top-right)
+            /* =========================
+           CTA BUTTON
         ========================== */
-          .toggle-wrap {
-              position: fixed;
-              right: 18px;
-              bottom: 18px;
-              z-index: 50;
-              display: inline-flex;
-              align-items: center;
-              gap: 12px;
-              padding: 10px 12px;
-              border-radius: 999px;
-              background: var(--toggle-glass);
-              border: 1px solid var(--toggle-stroke);
-              box-shadow: var(--toggle-shadow);
-              backdrop-filter: blur(14px);
-              -webkit-backdrop-filter: blur(14px);
-          }
+            .cta {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 18px;
+                border-radius: 999px;
+                background: var(--glass);
+                border: 1px solid var(--glass-border);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                color: var(--text);
+                text-decoration: none;
+                font-size: 14px;
+                transition: all 0.2s ease;
+            }
 
-          @media (max-width: 640px) {
-              .toggle-wrap {
-                  top: 14px;
-                  bottom: auto;
-                  right: 14px;
-              }
-          }
+                .cta:hover,
+                .cta:focus-visible {
+                    background: var(--apple-blue);
+                    color: #fff;
+                    border-color: rgba(0, 113, 227, 0.45);
+                    box-shadow: 0 12px 34px rgba(0, 113, 227, 0.35);
+                }
 
-          .toggle-label {
-              font-size: 12.5px;
-              color: var(--muted);
-              user-select: none;
-              min-width: 42px;
-              text-align: right;
-          }
+            /* =========================
+           FOOTER
+        ========================== */
+            footer {
+                border-top: 1px solid var(--hairline);
+                padding: 18px;
+                font-size: 12.5px;
+                color: var(--muted);
+                text-align: center;
+            }
 
-          .switch {
-              position: relative;
-              width: 46px;
-              height: 28px;
-              border-radius: 999px;
-              background: var(--switch-track);
-              border: 1px solid var(--toggle-stroke);
-              cursor: pointer;
-              transition: background 0.2s ease, border-color 0.2s ease;
-              outline: none;
-          }
+            /* =========================
+           APPLE-LIKE TOGGLE (switch)
+           - glass capsule
+           - sun/moon
+           - mini "haptic" click animation
+           - desktop bottom-right, mobile top-right
+        ========================== */
+            .theme-toggle {
+                position: fixed;
+                right: 18px;
+                bottom: 18px;
+                z-index: 100;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 9px 10px;
+                border-radius: 999px;
+                background: var(--toggle-glass);
+                border: 1px solid var(--toggle-border);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                box-shadow: var(--toggle-shadow);
+                user-select: none;
+            }
 
-              .switch::after {
-                  content: "";
-                  position: absolute;
-                  top: 3px;
-                  left: 3px;
-                  width: 22px;
-                  height: 22px;
-                  border-radius: 999px;
-                  background: var(--switch-knob);
-                  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-                  transition: transform 0.22s ease;
-              }
+            @media (max-width: 640px) {
+                .theme-toggle {
+                    top: 14px;
+                    bottom: auto;
+                    right: 14px;
+                }
+            }
 
-              .switch[data-on="true"] {
-                  background: rgba(52, 199, 89, 0.9);
-                  border-color: rgba(52, 199, 89, 0.35);
-              }
+            .theme-icon {
+                width: 18px;
+                height: 18px;
+                display: grid;
+                place-items: center;
+                color: var(--muted);
+                transition: color 0.2s ease, opacity 0.2s ease, transform 0.22s ease;
+                opacity: 0.7;
+            }
 
-                  .switch[data-on="true"]::after {
-                      transform: translateX(18px);
-                  }
+            .theme-toggle[data-mode="light"] .theme-icon--sun {
+                opacity: 1;
+                color: var(--text);
+            }
 
-              .switch:focus-visible {
-                  outline: 3px solid rgba(0, 113, 227, 0.45);
-                  outline-offset: 3px;
-              }
+            .theme-toggle[data-mode="dark"] .theme-icon--moon {
+                opacity: 1;
+                color: var(--text);
+            }
 
-          @media (prefers-reduced-motion: reduce) {
-              * {
-                  transition: none !important;
-              }
-          }
+            .theme-switch {
+                position: relative;
+                width: 46px;
+                height: 28px;
+                border-radius: 999px;
+                background: var(--switch-track);
+                border: 1px solid var(--toggle-border);
+                cursor: pointer;
+                padding: 0;
+                outline: none;
+                transition: background 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
+            }
+
+                .theme-switch::after {
+                    content: "";
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 999px;
+                    background: var(--switch-knob);
+                    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+                    transition: transform 0.22s ease;
+                }
+
+                /* ON = dark theme active (neutral gray, Apple-like) */
+                .theme-switch[data-on="true"] {
+                    background: rgba(255, 255, 255, 0.28);
+                    border-color: rgba(255, 255, 255, 0.32);
+                
+
+       }
+
+                    .theme-switch[data-on="true"]::after {
+                        transform: translateX(18px);
+                    }
+
+            /* mini "haptic" press */
+            .theme-toggle.is-pressed {
+                animation: haptic 180ms ease-out both;
+            }
+
+            @keyframes haptic {
+                0% {
+                    transform: translateZ(0) scale(1);
+                }
+
+                40% {
+                    transform: translateZ(0) scale(0.96);
+                }
+
+                100% {
+                    transform: translateZ(0) scale(1);
+                }
+            }
+
+            .theme-switch:focus-visible {
+                outline: 3px solid rgba(0, 113, 227, 0.45);
+                outline-offset: 3px;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    transition: none !important;
+                    animation: none !important;
+                }
+            }
     </style>
 </head>
 
 <body>
     <div class="page">
-        <header class="header">
+        <header>
             <img src="./assets/logo.png" alt="Murr Medien" class="logo" />
         </header>
 
-        <main class="main">
+        <main>
             <div class="center">
-                <h1 class="title">Website in Arbeit…</h1>
+                <div class="hero-avatars">
+                    <img src="./assets/luca.png" alt="Luca Krämer" class="hero-avatar left" />
+                    <img src="./assets/moritz.png" alt="Moritz Stoppel" class="hero-avatar right" />
+                </div>
+
                 <p class="subtitle">
-                    Wir arbeiten gerade an unserem neuen Auftritt. Bis dahin erreicht ihr uns jederzeit per E-Mail.
+                    Wir arbeiten gerade an unserem Auftritt. Bis dahin erreichst du
+                    uns jederzeit per Mail.
                 </p>
+
                 <a class="cta" href="mailto:info@murrmedien.de">Schreibe uns! :)</a>
             </div>
         </main>
 
-        <footer class="footer">
-            <div class="footer-inner">
-                <div><strong>Murr Medien</strong></div>
-                <div>Amselweg 5, 71570 Oppenweiler</div>
-                <div><a href="mailto:info@murrmedien.de">info@murrmedien.de</a></div>
-                <div>Gesellschafter: Luca Krämer &amp; Moritz Stoppel</div>
-            </div>
+        <footer>
+            Murr Medien GbR · Amselweg 5 · 71570 Oppenweiler ·
+            <a href="mailto:info@murrmedien.de">info@murrmedien.de</a><br />
+            Gesellschafter: Luca Krämer &amp; Moritz Stoppel
         </footer>
     </div>
 
-    <!-- Apple-like glass switch -->
-    <div class="toggle-wrap" aria-label="Design umschalten">
-        <div class="toggle-label" id="modeLabel">Light</div>
-        <div class="switch"
-             id="themeSwitch"
-             role="switch"
-             tabindex="0"
-             aria-checked="false"
-             data-on="false"
-             title="Light/Dark umschalten"></div>
+    <!-- Apple-like Light/Dark Toggle -->
+    <div class="theme-toggle" id="themeToggle" data-mode="light" aria-label="Design umschalten">
+        <span class="theme-icon theme-icon--sun" aria-hidden="true">
+            <!-- Sun -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="1.8" />
+                <path d="M12 2v2.5M12 19.5V22M4.22 4.22 6 6M18 18l1.78 1.78M2 12h2.5M19.5 12H22M4.22 19.78 6 18M18 6l1.78-1.78"
+                      stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+        </span>
+
+        <button class="theme-switch"
+                id="themeSwitch"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                data-on="false"
+                title="Light/Dark umschalten"></button>
+
+        <span class="theme-icon theme-icon--moon" aria-hidden="true">
+            <!-- Moon -->
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 14.2A8.5 8.5 0 0 1 9.8 3a7 7 0 1 0 11.2 11.2Z"
+                      stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            </svg>
+        </span>
     </div>
 
     <script>const root = document.documentElement;
+        const toggleWrap = document.getElementById("themeToggle");
         const sw = document.getElementById("themeSwitch");
-        const label = document.getElementById("modeLabel");
 
-        function apply(theme) {
+        function applyTheme(theme) {
             root.setAttribute("data-theme", theme);
             localStorage.setItem("theme", theme);
+
             const isDark = theme === "dark";
             sw.dataset.on = String(isDark);
             sw.setAttribute("aria-checked", String(isDark));
-            label.textContent = isDark ? "Dark" : "Light";
+            toggleWrap.dataset.mode = isDark ? "dark" : "light";
         }
 
+        // initial theme: saved -> else system
         const saved = localStorage.getItem("theme");
         if (saved === "light" || saved === "dark") {
-            apply(saved);
+            applyTheme(saved);
         } else {
-            const prefersDark =
-                window.matchMedia &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches;
-            apply(prefersDark ? "dark" : "light");
+            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            applyTheme(prefersDark ? "dark" : "light");
+        }
+
+        function haptic() {
+            toggleWrap.classList.remove("is-pressed");
+            // reflow to restart animation
+            void toggleWrap.offsetWidth;
+            toggleWrap.classList.add("is-pressed");
+            setTimeout(() => toggleWrap.classList.remove("is-pressed"), 200);
         }
 
         function toggleTheme() {
             const current = root.getAttribute("data-theme") || "light";
-            apply(current === "dark" ? "light" : "dark");
+            applyTheme(current === "dark" ? "light" : "dark");
+            haptic();
         }
 
-        sw.addEventListener("click", toggleTheme);
+        // click anywhere on capsule toggles (more apple-like)
+        toggleWrap.addEventListener("click", (e) => {
+            // avoid double toggle if button itself fires + wrapper
+            // We'll handle all clicks here; prevent default button behavior is fine.
+            e.preventDefault();
+            toggleTheme();
+        });
+
+        // keyboard support on the switch
         sw.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();

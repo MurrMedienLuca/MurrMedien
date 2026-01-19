@@ -6,134 +6,121 @@
     <title>Murr Medien</title>
 
     <style>
-            /* =========================
+        /* =========================
            FONTS
         ========================== */
-            @font-face {
-                font-family: "Jost";
-                src: url("./fonts/Jost-Regular.ttf") format("truetype");
-                font-weight: 400;
-                font-style: normal;
-                font-display: swap;
-            }
+        @font-face {
+            font-family: "Jost";
+            src: url("./fonts/Jost-Regular.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
 
-            @font-face {
-                font-family: "Jost Display";
-                src: url("./assets/Jost-BoldItalic.ttf") format("truetype");
-                font-weight: 700;
-                font-style: italic;
-                font-display: swap;
-            }
-
-            /* =========================
+        /* =========================
            TOKENS
         ========================== */
-            :root {
-                --bg: #f5f5f7;
-                --text: rgba(0, 0, 0, 0.88);
-                --muted: rgba(0, 0, 0, 0.58);
-                --hairline: rgba(0, 0, 0, 0.12);
-                --brand-darkblue: #1c2e4b;
-                --brand-lightblue: #619db6;
-                --brand-rose: #a6495f;
-                --g1: color-mix(in srgb, var(--brand-lightblue) 36%, transparent);
-                --g2: color-mix(in srgb, var(--brand-rose) 26%, transparent);
-                --g3: color-mix(in srgb, var(--brand-darkblue) 22%, transparent);
-                --apple-blue: #0071e3;
-                --glass: rgba(255, 255, 255, 0.18);
-                --glass-border: rgba(0, 0, 0, 0.14);
-                /* toggle */
-                --toggle-glass: rgba(255, 255, 255, 0.65);
-                --toggle-border: rgba(0, 0, 0, 0.12);
-                --toggle-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
-                --switch-track: rgba(0, 0, 0, 0.18);
-                --switch-knob: rgba(255, 255, 255, 0.98);
-            }
+        :root {
+            --bg: #f5f5f7;
+            --text: rgba(0, 0, 0, 0.88);
+            --muted: rgba(0, 0, 0, 0.58);
+            --hairline: rgba(0, 0, 0, 0.12);
+            --brand-darkblue: #1c2e4b;
+            --brand-lightblue: #619db6;
+            --brand-rose: #a6495f;
+            --g1: color-mix(in srgb, var(--brand-lightblue) 36%, transparent);
+            --g2: color-mix(in srgb, var(--brand-rose) 26%, transparent);
+            --g3: color-mix(in srgb, var(--brand-darkblue) 22%, transparent);
+            --apple-blue: #0071e3;
+            --glass: rgba(255, 255, 255, 0.18);
+            --glass-border: rgba(0, 0, 0, 0.14);
+            --toggle-glass: rgba(255, 255, 255, 0.65);
+            --toggle-border: rgba(0, 0, 0, 0.12);
+            --toggle-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+            --switch-track: rgba(0, 0, 0, 0.18);
+            --switch-knob: rgba(255, 255, 255, 0.98);
+        }
 
-            [data-theme="dark"] {
-                --bg: #0b0c0f;
-                --text: rgba(255, 255, 255, 0.92);
-                --muted: rgba(255, 255, 255, 0.65);
-                --hairline: rgba(255, 255, 255, 0.14);
-                --g1: color-mix(in srgb, var(--brand-lightblue) 44%, transparent);
-                --g2: color-mix(in srgb, var(--brand-rose) 34%, transparent);
-                --g3: color-mix(in srgb, var(--brand-darkblue) 38%, transparent);
-                --glass: rgba(255, 255, 255, 0.08);
-                --glass-border: rgba(255, 255, 255, 0.14);
-                --toggle-glass: rgba(255, 255, 255, 0.08);
-                --toggle-border: rgba(255, 255, 255, 0.14);
-                --toggle-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
-                --switch-track: rgba(255, 255, 255, 0.22);
-                --switch-knob: rgba(255, 255, 255, 0.95);
-            }
+        [data-theme="dark"] {
+            --bg: #0b0c0f;
+            --text: rgba(255, 255, 255, 0.92);
+            --muted: rgba(255, 255, 255, 0.65);
+            --hairline: rgba(255, 255, 255, 0.14);
+            --g1: color-mix(in srgb, var(--brand-lightblue) 44%, transparent);
+            --g2: color-mix(in srgb, var(--brand-rose) 34%, transparent);
+            --g3: color-mix(in srgb, var(--brand-darkblue) 38%, transparent);
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.14);
+            --toggle-glass: rgba(255, 255, 255, 0.08);
+            --toggle-border: rgba(255, 255, 255, 0.14);
+            --toggle-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+            --switch-track: rgba(255, 255, 255, 0.22);
+            --switch-knob: rgba(255, 255, 255, 0.95);
+        }
 
-            /* =========================
+        /* =========================
            BASE
         ========================== */
-            * {
-                box-sizing: border-box;
-            }
+        * {
+            box-sizing: border-box;
+        }
 
-            body {
-                margin: 0;
-                min-height: 100vh;
-                font-family: "Jost", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-                color: var(--text);
-                background: radial-gradient(900px 520px at 15% 12%, var(--g1), transparent 62%), radial-gradient(820px 640px at 85% 18%, var(--g2), transparent 66%), radial-gradient(720px 640px at 50% 92%, var(--g3), transparent 66%), var(--bg);
-            }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Jost", system-ui, sans-serif;
+            color: var(--text);
+            background: radial-gradient(900px 520px at 15% 12%, var(--g1), transparent 62%), radial-gradient(820px 640px at 85% 18%, var(--g2), transparent 66%), radial-gradient(720px 640px at 50% 92%, var(--g3), transparent 66%), var(--bg);
+        }
 
-            /* =========================
+        /* =========================
            LAYOUT
         ========================== */
-            .page {
-                min-height: 100vh;
-                display: grid;
-                grid-template-rows: auto 1fr auto;
-            }
+        .page {
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
 
-            header {
-                padding: 24px 28px;
-            }
+        header {
+            padding: 24px 28px;
+        }
 
-            .logo {
-                height: 40px;
-            }
+        .logo {
+            height: 40px;
+        }
 
-            main {
-                display: grid;
-                place-items: center;
-                padding: 24px;
-            }
+        main {
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
 
-            .center {
-                text-align: center;
-                max-width: 640px;
-            }
+        .center {
+            text-align: center;
+            max-width: 640px;
+        }
 
-            /* =========================
-           HERO AVATARS
+        /* =========================
+           HERO
         ========================== */
-            .hero-avatars {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 22px;
-            }
+        .hero-avatars {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 22px;
+        }
 
-            .hero-avatar {
-                width: 104px;
-                height: 104px;
-                border-radius: 999px;
-                object-fit: cover;
-                border: 2px solid rgba(255, 255, 255, 0.9);
-                outline: 1px solid rgba(0, 0, 0, 0.12);
-                outline-offset: -2px;
-                box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-                background: #fff;
-            }
-
-            [data-theme="dark"] .hero-avatar {
-                outline-color: rgba(255, 255, 255, 0.18);
-            }
+        .hero-avatar {
+            width: 104px;
+            height: 104px;
+            border-radius: 999px;
+            object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.9);
+            outline: 1px solid rgba(0,0,0,0.12);
+            outline-offset: -2px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            background: #fff;
+        }
 
             .hero-avatar.left {
                 margin-right: -20px;
@@ -144,195 +131,167 @@
                 margin-left: -20px;
             }
 
-            /* =========================
-           TEXT
-        ========================== */
-            .subtitle {
-                margin: 0 0 26px;
-                font-size: 16px;
-                line-height: 1.6;
-                color: var(--muted);
-            }
-
-            /* =========================
-           CTA BUTTON
-        ========================== */
-            .cta {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 12px 18px;
-                border-radius: 999px;
-                background: var(--glass);
-                border: 1px solid var(--glass-border);
-                backdrop-filter: blur(14px);
-                -webkit-backdrop-filter: blur(14px);
-                color: var(--text);
-                text-decoration: none;
-                font-size: 14px;
-                transition: all 0.2s ease;
-            }
-
-                .cta:hover,
-                .cta:focus-visible {
-                    background: var(--apple-blue);
-                    color: #fff;
-                    border-color: rgba(0, 113, 227, 0.45);
-                    box-shadow: 0 12px 34px rgba(0, 113, 227, 0.35);
-                }
-
-            /* =========================
-           FOOTER
-        ========================== */
-            footer {
-                border-top: 1px solid var(--hairline);
-                padding: 18px;
-                font-size: 12.5px;
-                color: var(--muted);
-                text-align: center;
-            }
-
-            /* =========================
-           APPLE-LIKE TOGGLE (switch)
-           - glass capsule
-           - sun/moon
-           - mini "haptic" click animation
-           - desktop bottom-right, mobile top-right
-        ========================== */
-            .theme-toggle {
-                position: fixed;
-                right: 18px;
-                bottom: 18px;
-                z-index: 100;
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-                padding: 9px 10px;
-                border-radius: 999px;
-                background: var(--toggle-glass);
-                border: 1px solid var(--toggle-border);
-                backdrop-filter: blur(14px);
-                -webkit-backdrop-filter: blur(14px);
-                box-shadow: var(--toggle-shadow);
-                user-select: none;
-            }
-
-            @media (max-width: 640px) {
-                .theme-toggle {
-                    top: 14px;
-                    bottom: auto;
-                    right: 14px;
-                }
-            }
-
-            .theme-icon {
-                width: 18px;
-                height: 18px;
-                display: grid;
-                place-items: center;
-                color: var(--muted);
-                transition: color 0.2s ease, opacity 0.2s ease, transform 0.22s ease;
-                opacity: 0.7;
-            }
-
-            .theme-toggle[data-mode="light"] .theme-icon--sun {
-                opacity: 1;
-                color: var(--text);
-            }
-
-            .theme-toggle[data-mode="dark"] .theme-icon--moon {
-                opacity: 1;
-                color: var(--text);
-            }
-
-            .theme-switch {
-                position: relative;
-                width: 46px;
-                height: 28px;
-                border-radius: 999px;
-                background: var(--switch-track);
-                border: 1px solid var(--toggle-border);
-                cursor: pointer;
-                padding: 0;
-                outline: none;
-                transition: background 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
-            }
-
-                .theme-switch::after {
-                    content: "";
-                    position: absolute;
-                    top: 3px;
-                    left: 3px;
-                    width: 22px;
-                    height: 22px;
-                    border-radius: 999px;
-                    background: var(--switch-knob);
-                    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-                    transition: transform 0.22s ease;
-                }
-
-        [data-theme="dark"] footer a:hover {
-            color: #ffffff;
-            text-decoration: underline;
+        .subtitle {
+            margin: 0 0 26px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--muted);
         }
 
+        /* =========================
+           CTA
+        ========================== */
+        .cta {
+            display: inline-flex;
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(14px);
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
 
-                /* ON = dark theme active (neutral gray, Apple-like) */
-                .theme-switch[data-on="true"] {
-                    background: rgba(255, 255, 255, 0.28);
-                    border-color: rgba(255, 255, 255, 0.32);
-                
-
-       }
-
-                    .theme-switch[data-on="true"]::after {
-                        transform: translateX(18px);
-                    }
-
-            /* mini "haptic" press */
-            .theme-toggle.is-pressed {
-                animation: haptic 180ms ease-out both;
+            .cta:hover {
+                background: var(--apple-blue);
+                color: #fff;
+                box-shadow: 0 12px 34px rgba(0,113,227,0.35);
             }
 
-            @keyframes haptic {
-                0% {
-                    transform: translateZ(0) scale(1);
-                }
+        /* =========================
+           REFERENCES
+        ========================== */
+        .references {
+            margin-top: 64px;
+            display: grid;
+            gap: 14px;
+        }
 
-                40% {
-                    transform: translateZ(0) scale(0.96);
-                }
-
-                100% {
-                    transform: translateZ(0) scale(1);
-                }
+            .references h3 {
+                margin-bottom: 8px;
+                font-size: 15px;
+                font-weight: 400;
+                color: var(--muted);
             }
 
-            .theme-switch:focus-visible {
-                outline: 3px solid rgba(0, 113, 227, 0.45);
-                outline-offset: 3px;
+        .reference-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+        }
+
+            .reference-link span {
+                color: var(--muted);
+                transition: transform 0.15s ease;
             }
 
-            @media (prefers-reduced-motion: reduce) {
-                * {
-                    transition: none !important;
-                    animation: none !important;
+            .reference-link:hover {
+                transform: translateY(-2px);
+                background: var(--apple-blue);
+                color: #fff;
+                box-shadow: 0 14px 36px rgba(0,113,227,0.35);
+            }
+
+                .reference-link:hover span {
+                    color: #fff;
+                    transform: translateX(3px);
                 }
+
+        /* =========================
+           FOOTER
+        ========================== */
+        footer {
+            border-top: 1px solid var(--hairline);
+            padding: 18px;
+            font-size: 12.5px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        /* =========================
+           THEME TOGGLE (ORIGINAL)
+        ========================== */
+        .theme-toggle {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 10px;
+            border-radius: 999px;
+            background: var(--toggle-glass);
+            border: 1px solid var(--toggle-border);
+            backdrop-filter: blur(14px);
+            box-shadow: var(--toggle-shadow);
+            user-select: none;
+        }
+
+        .theme-icon {
+            width: 18px;
+            height: 18px;
+            display: grid;
+            place-items: center;
+            color: var(--muted);
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+
+        .theme-toggle[data-mode="light"] .theme-icon--sun,
+        .theme-toggle[data-mode="dark"] .theme-icon--moon {
+            opacity: 1;
+            color: var(--text);
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 46px;
+            height: 28px;
+            border-radius: 999px;
+            background: var(--switch-track);
+            border: 1px solid var(--toggle-border);
+            cursor: pointer;
+        }
+
+            .theme-switch::after {
+                content: "";
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 22px;
+                height: 22px;
+                border-radius: 999px;
+                background: var(--switch-knob);
+                transition: transform 0.22s ease;
+            }
+
+            .theme-switch[data-on="true"]::after {
+                transform: translateX(18px);
             }
     </style>
 </head>
 
 <body>
     <div class="page">
+
         <header>
-            <img src="./assets/logo.png" alt="Murr Medien" class="logo" />
+            <img src="./assets/logo.png" class="logo" alt="Murr Medien">
         </header>
 
         <main>
             <div class="center">
                 <div class="hero-avatars">
-                    <img src="./assets/luca.png" alt="Luca Krämer" class="hero-avatar left" />
-                    <img src="./assets/moritz.png" alt="Moritz Stoppel" class="hero-avatar right" />
+                    <img src="./assets/luca.png" class="hero-avatar left" alt="Luca Krämer">
+                    <img src="./assets/moritz.png" class="hero-avatar right" alt="Moritz Stoppel">
                 </div>
 
                 <p class="subtitle">
@@ -341,40 +300,45 @@
                 </p>
 
                 <a class="cta" href="mailto:info@murrmedien.de">Schreibe uns! :)</a>
+
+                <div class="references">
+                    <h3>Ausgewählte Projekte, die wir bereits umgesetzt haben</h3>
+
+                    <a class="reference-link" href="https://www.sgos.de" target="_blank" rel="noopener">
+                        SG Oppenweiler-Strümpfelbach <span>↗</span>
+                    </a>
+
+                    <a class="reference-link" href="https://www.vereinsgaststaette-rohrbachtal.de" target="_blank" rel="noopener">
+                        Vereinsgaststätte Rohrbachtal <span>↗</span>
+                    </a>
+                </div>
             </div>
         </main>
 
         <footer>
             Murr Medien GbR · Amselweg 5 · 71570 Oppenweiler ·
-            <a href="mailto:info@murrmedien.de">info@murrmedien.de</a><br />
+            <a href="mailto:info@murrmedien.de">info@murrmedien.de</a><br>
             Gesellschafter: Luca Krämer, Moritz Stoppel
         </footer>
+
     </div>
 
-    <!-- Apple-like Light/Dark Toggle -->
-    <div class="theme-toggle" id="themeToggle" data-mode="light" aria-label="Design umschalten">
-        <span class="theme-icon theme-icon--sun" aria-hidden="true">
-            <!-- Sun -->
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- ORIGINAL THEME TOGGLE -->
+    <div class="theme-toggle" id="themeToggle" data-mode="light">
+        <span class="theme-icon theme-icon--sun">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
                 <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="1.8" />
                 <path d="M12 2v2.5M12 19.5V22M4.22 4.22 6 6M18 18l1.78 1.78M2 12h2.5M19.5 12H22M4.22 19.78 6 18M18 6l1.78-1.78"
                       stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
             </svg>
         </span>
 
-        <button class="theme-switch"
-                id="themeSwitch"
-                type="button"
-                role="switch"
-                aria-checked="false"
-                data-on="false"
-                title="Light/Dark umschalten"></button>
+        <button class="theme-switch" id="themeSwitch" type="button" data-on="false"></button>
 
-        <span class="theme-icon theme-icon--moon" aria-hidden="true">
-            <!-- Moon -->
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <span class="theme-icon theme-icon--moon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
                 <path d="M21 14.2A8.5 8.5 0 0 1 9.8 3a7 7 0 1 0 11.2 11.2Z"
-                      stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                      stroke="currentColor" stroke-width="1.8" />
             </svg>
         </span>
     </div>
@@ -389,47 +353,20 @@
 
             const isDark = theme === "dark";
             sw.dataset.on = String(isDark);
-            sw.setAttribute("aria-checked", String(isDark));
             toggleWrap.dataset.mode = isDark ? "dark" : "light";
         }
 
-        // initial theme: saved -> else system
         const saved = localStorage.getItem("theme");
         if (saved === "light" || saved === "dark") {
             applyTheme(saved);
         } else {
-            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             applyTheme(prefersDark ? "dark" : "light");
         }
 
-        function haptic() {
-            toggleWrap.classList.remove("is-pressed");
-            // reflow to restart animation
-            void toggleWrap.offsetWidth;
-            toggleWrap.classList.add("is-pressed");
-            setTimeout(() => toggleWrap.classList.remove("is-pressed"), 200);
-        }
-
-        function toggleTheme() {
-            const current = root.getAttribute("data-theme") || "light";
-            applyTheme(current === "dark" ? "light" : "dark");
-            haptic();
-        }
-
-        // click anywhere on capsule toggles (more apple-like)
-        toggleWrap.addEventListener("click", (e) => {
-            // avoid double toggle if button itself fires + wrapper
-            // We'll handle all clicks here; prevent default button behavior is fine.
-            e.preventDefault();
-            toggleTheme();
-        });
-
-        // keyboard support on the switch
-        sw.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                toggleTheme();
-            }
+        toggleWrap.addEventListener("click", () => {
+            applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
         });</script>
+
 </body>
 </html>

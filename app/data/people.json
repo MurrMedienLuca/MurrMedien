@@ -1,0 +1,11 @@
+[
+    {
+      "uuid": 1,
+      "firstName": "Luca",
+      "lastName": "Krämer",
+      "email": "kraemer.luca@gmx.de",
+      "phoneNumber": "+49 155 66152739",
+      "role": "Gesellschafter",
+      "img": "/images/luca.png"
+    }
+  ]

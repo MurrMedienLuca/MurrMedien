@@ -1,4 +1,4 @@
-import { mapWpProject } from "@/app/mappers/projectmapper";
+import { mapWpPerson, mapWpProject } from "@/app/mappers/projectmapper";
 import { ProjectProps } from "../app/types/types"; // Pfad prüfen!
 
 
@@ -13,12 +13,13 @@ export async function getProjectsFromWordpress(): Promise<ProjectProps[]> {
   return await Promise.all(data.map((p: any) => mapWpProject(p)));
 }
 
-  export async function getPeople() {
+  export async function getPeopleFromWordpress() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/person`, { cache: "no-store" });
   
     if (!res.ok) {
       throw new Error("Fehler beim Laden der Personen");
     }
+    const data = await res.json(); //
   
-    return res.json();
+    return await Promise.all(data.map((p: any) => mapWpPerson(p)));
   }

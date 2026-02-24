@@ -5,3 +5,13 @@ export interface ProjectProps {
     description: string;
     link: string;
   }
+
+  export interface PersonProps {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    role: string;
+    img: string;
+  }

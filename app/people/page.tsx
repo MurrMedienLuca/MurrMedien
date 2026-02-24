@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import {
     Card,
@@ -8,24 +9,14 @@ import {
   } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-type PersonProps = {
-  person: any;
+import { PersonProps } from "../types/types";
+type PersonProps2 = {
+  person: PersonProps;
 };
 
-export async function getImageUrl(id: number) {
-
-    const res = await fetch(
-      `http://murr-medien-gbr.local/wp-json/wp/v2/media/${id}`
-    );
-  
-    const data = await res.json();
-  
-    return data.source_url;
-  }
 
 
-  const Person = async ({ person }: PersonProps) => {
-    const imageUrl = await getImageUrl(person.acf.bild);
+  const Person = ({ person }: PersonProps2) => {
   return (
 <Card className="relative mx-auto w-full max-w-sm pt-0 rounded-xl overflow-hidden">
   {/* Overlay */}
@@ -33,25 +24,25 @@ export async function getImageUrl(id: number) {
   
   {/* Bild */}
   <img
-    src={imageUrl}
+    src={person.img}
     alt="Person portrait"
     className="relative z-20 w-full aspect-[3/4] object-cover rounded-t-xl"
   />
 
   <CardHeader>
 
-    <CardTitle>{person.acf.firstname} {person.acf.lastname}</CardTitle>
+    <CardTitle>{person.firstName} {person.lastName}</CardTitle>
     <CardDescription>
 
         <p className="">
-        {person.acf.role}
+        {person.role}
 </p>
 <br/>
 <p className="">
-        {person.acf.email}
+        {person.email}
 </p>
 <p className="">
-        {person.acf.phoneNumber}
+        {person.phoneNumber}
 </p>
     </CardDescription>
   </CardHeader>

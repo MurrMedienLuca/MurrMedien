@@ -1,6 +1,6 @@
-import { ProjectProps } from "@/app/types/types";
+import { PersonProps, ProjectProps } from "@/app/types/types";
 import { getProjectsFromWordpress } from "./wordpress";
-import { getProjectsFromJson } from "./json";
+import { getPeopleFromJson, getProjectsFromJson } from "./json";
 
 export type DataSource = "JSON" | "WORDPRESS";
 
@@ -11,4 +11,11 @@ export async function getProjects(): Promise<ProjectProps[]> {
     return await getProjectsFromWordpress();
   }
   return getProjectsFromJson();
+}
+
+export async function getPeople(): Promise<PersonProps[]> {
+  if (DATA_SOURCE === "WORDPRESS") {
+    return await getPeopleFromJson();
+  }
+  return getPeopleFromJson();
 }

@@ -1,9 +1,8 @@
-import { getPeople } from "@/lib/wordpress";
 import Project from "./projects/page";
 import Person from "./people/page";
 import { ProjectProps } from "./types/types";
 import { getProjectsFromJson } from "@/lib/json";
-import { getProjects } from "@/lib/dataprovider";
+import { getPeople, getProjects } from "@/lib/dataprovider";
 
 
 export default async function Home() {

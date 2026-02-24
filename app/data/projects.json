@@ -2,14 +2,14 @@
   {
     "uuid": 1,
     "fullTitle": "Vereinsgaststätte Rohrbachtal",
-    "desc": "Ein modernes CMS-Projekt...",
+    "desc": "Ein moderner Webauftritt für den lokalen Sportverein – übersichtlich, mobil optimiert und einfach selbst pflegbar. Von der Struktur bis zum fertigen Launch aus einer Hand.",
     "img": "/images/vrm.png",
     "link": "https://www.vereinsgaststaette-rohrbachtal.de/"
   },
   {
     "uuid": 2,
-    "fullTitle": "SG Oppenweiler Strümpfelbach Json",
-    "desc": "Webauftritt für lokalen Sportverein...",
+    "fullTitle": "SG Oppenweiler Strümpfelbach JSON",
+    "desc": "Besonderes Augenmerk lag auf der in das CMS integrierten Speisekarte, die es ermöglicht, Änderungen schnell und unkompliziert – auch mobil über das Smartphone vorzunehmen.",
     "img": "/images/sgos.png",
     "link": "https://www.sgos.de/"
   }

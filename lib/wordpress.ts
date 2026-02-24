@@ -3,7 +3,7 @@ import { ProjectProps } from "../app/types/types"; // Pfad prüfen!
 
 
 export async function getProjectsFromWordpress(): Promise<ProjectProps[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp/v2/projekt`, { cache: "no-store" });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/projekt`, { cache: "no-store" });
 
   if (!res.ok) {
     throw new Error("Fehler beim Laden der Projekte");
@@ -14,7 +14,7 @@ export async function getProjectsFromWordpress(): Promise<ProjectProps[]> {
 }
 
   export async function getPeople() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp/v2/person`, { cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/person`, { cache: "no-store" });
   
     if (!res.ok) {
       throw new Error("Fehler beim Laden der Personen");

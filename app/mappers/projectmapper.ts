@@ -11,7 +11,7 @@ export const mapWpProject = async (wpData: any): Promise<ProjectProps> => ({
 
 // Funktion zum Holen der Bild-URL
 export async function getImageUrl(id: number): Promise<string> {
-  const res = await fetch(`http://murr-medien-gbr.local/wp-json/wp/v2/media/${id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/media/${id}`);
   if (!res.ok) throw new Error("Fehler beim Laden des Bildes");
 
   const data = await res.json();

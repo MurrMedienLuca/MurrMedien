@@ -1,0 +1,16 @@
+[
+  {
+    "uuid": 1,
+    "fullTitle": "Vereinsgaststätte Rohrbachtal",
+    "desc": "Ein modernes CMS-Projekt...",
+    "img": "/images/vrm.png",
+    "link": "https://www.vereinsgaststaette-rohrbachtal.de/"
+  },
+  {
+    "uuid": 2,
+    "fullTitle": "SG Oppenweiler Strümpfelbach Json",
+    "desc": "Webauftritt für lokalen Sportverein...",
+    "img": "/images/sgos.png",
+    "link": "https://www.sgos.de/"
+  }
+]

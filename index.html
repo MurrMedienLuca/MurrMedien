@@ -64,6 +64,7 @@
         * { box-sizing: border-box; }
 
         html { overflow-x: hidden; }
+        *, *::before, *::after { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -311,17 +312,17 @@
             margin-bottom: 0;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
             .hero-split {
                 grid-template-columns: 1fr;
                 gap: 24px;
                 min-height: unset;
             }
             .hero-split-img img {
-                aspect-ratio: 3 / 2;
+                aspect-ratio: 4 / 3;
             }
             .hero-project {
-                flex: 0 0 80vw;
+                flex: 0 0 85vw;
             }
             .leistungen-grid {
                 grid-template-columns: 1fr 1fr;
@@ -329,9 +330,22 @@
             .contact-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .contact-card {
+                flex-direction: column;
+            }
             .contact-avatar {
-                width: 90px;
-                height: 110px;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .leistungen-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
 

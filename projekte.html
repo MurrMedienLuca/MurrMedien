@@ -53,6 +53,7 @@
         * { box-sizing: border-box; }
 
         html { overflow-x: hidden; }
+        *, *::before, *::after { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -541,6 +542,10 @@
 
         .footer-social-mobile { display: none; flex-direction: column; margin-top: 16px; }
         .footer-social-mobile .footer-social-icons { display: flex; gap: 16px; margin-top: 4px; }
+
+        @media (max-width: 768px) {
+            .cards-grid { grid-template-columns: 1fr; }
+        }
 
         @media (max-width: 520px) {
             header { padding: 18px; }

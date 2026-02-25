@@ -1,5 +1,6 @@
-import { mapWpPerson, mapWpProject } from "@/app/mappers/projectmapper";
-import { ProjectProps } from "../app/types/types"; // Pfad prüfen!
+import { mapWpPerson, mapWpProject } from "@/mappers/projectmapper";
+import { ProjectProps } from "@/types/types";
+
 
 
 export async function getProjectsFromWordpress(): Promise<ProjectProps[]> {

@@ -1,8 +1,7 @@
-import Project from "./projects/page";
-import Person from "./people/page";
-import { ProjectProps } from "./types/types";
-import { getProjectsFromJson } from "@/lib/json";
+import Project from "@/components/projects/Project";
 import { getPeople, getProjects } from "@/lib/dataprovider";
+import Person from "@/components/people/Person";
+import { ProjectProps } from "@/types/types";
 
 
 export default async function Home() {

@@ -8,8 +8,8 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
+import { ProjectProps } from "@/types/types";
 import Link from "next/link";
-import { ProjectProps } from "../types/types";
 type ProjectProps2 = {
   project: ProjectProps;
 };

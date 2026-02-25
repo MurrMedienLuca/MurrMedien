@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+
 import {
     Card,
     CardDescription,
@@ -8,8 +8,7 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { PersonProps } from "../types/types";
+import { PersonProps } from "@/types/types";
 type PersonProps2 = {
   person: PersonProps;
 };

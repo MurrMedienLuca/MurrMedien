@@ -1,7 +1,7 @@
-import { mapJsonPerson, mapJsonProject } from "@/app/mappers/projectmapper";
-import projectsJson from "../app/data/projects.json";
-import peopleJson from "../app/data/people.json";
-import { PersonProps, ProjectProps } from "../app/types/types"; // Pfad prüfen!
+import projectsJson from "../data/projects.json";
+import peopleJson from "../data/people.json";
+import { PersonProps, ProjectProps } from "@/types/types";
+import { mapJsonPerson, mapJsonProject } from "@/mappers/projectmapper";
 
 export async function getProjectsFromJson(): Promise<ProjectProps[]> {
   // bei statischem JSON reicht das direkte Mapping

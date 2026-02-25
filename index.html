@@ -311,7 +311,17 @@
         @media (max-width: 700px) {
             .hero-split {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: 24px;
+                min-height: unset;
+            }
+            .hero-split-img img {
+                aspect-ratio: 3 / 2;
+            }
+            .hero-project {
+                flex: 0 0 80vw;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -605,7 +615,7 @@
         @media (max-width: 520px) {
             header { padding: 18px; }
             main { padding: 36px 18px 60px; }
-            .hero-body { flex-direction: column; align-items: flex-start; }
+            .contact-grid { grid-template-columns: 1fr 1fr; }
             .footer-inner { flex-direction: column; gap: 32px; }
             .footer-cols { gap: 32px; }
             .header-left { visibility: hidden; }

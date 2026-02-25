@@ -7,8 +7,6 @@ import { ProjectProps } from "@/types/types";
 export default async function Home() {
   const projects = await getProjects();
   const people = await getPeople();
-  console.log(projects)
-
 
 
   return (

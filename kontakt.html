@@ -20,53 +20,45 @@
             font-display: swap;
         }
 
+        @font-face {
+            font-family: "Jost";
+            src: url("./fonts/Jost-ExtraBoldItalic.ttf") format("truetype");
+            font-weight: 800;
+            font-style: italic;
+            font-display: swap;
+        }
+
         :root {
-            --bg: #f5f5f7;
+            --bg: #ffffff;
             --text: rgba(0, 0, 0, 0.88);
             --muted: rgba(0, 0, 0, 0.58);
             --hairline: rgba(0, 0, 0, 0.12);
             --brand-darkblue: #a6495f;
             --brand-lightblue: #a6495f;
             --brand-rose: #a6495f;
-            --g1: color-mix(in srgb, var(--brand-rose) 14%, transparent);
-            --g2: color-mix(in srgb, var(--brand-rose) 8%, transparent);
             --apple-blue: #a6495f;
             --glass: rgba(255, 255, 255, 0.18);
             --glass-border: rgba(0, 0, 0, 0.14);
         }
 
         [data-theme="dark"] {
-            --bg: #0b0c0f;
+            --bg: #000000;
             --text: rgba(255, 255, 255, 0.92);
             --muted: rgba(255, 255, 255, 0.65);
             --hairline: rgba(255, 255, 255, 0.14);
-            --g1: color-mix(in srgb, var(--brand-rose) 20%, transparent);
-            --g2: color-mix(in srgb, var(--brand-rose) 12%, transparent);
             --glass: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.14);
         }
 
         * { box-sizing: border-box; }
 
-        @property --bx1 { syntax: '<percentage>'; initial-value: 75%; inherits: false; }
-        @property --by1 { syntax: '<percentage>'; initial-value: -5%; inherits: false; }
-        @property --bx2 { syntax: '<percentage>'; initial-value: 5%; inherits: false; }
-        @property --by2 { syntax: '<percentage>'; initial-value: 105%; inherits: false; }
-
         body {
             margin: 0;
             min-height: 100vh;
             font-family: "Jost", system-ui, sans-serif;
             color: var(--text);
-            background:
-                radial-gradient(ellipse 80% 55% at var(--bx1) var(--by1), var(--g1), transparent),
-                radial-gradient(ellipse 45% 35% at var(--bx2) var(--by2), var(--g2), transparent),
-                var(--bg);
-            animation: bgFloat 22s ease-in-out infinite;
+            background: var(--bg);
         }
-
-        @keyframes bgFloat {
-            0%, 100% { --bx1: 75%; --by1:  -5%; --bx2:  5%; --by2: 105%; }
             33%       { --bx1: 62%; --by1:   8%; --bx2: 18%; --by2:  92%; }
             66%       { --bx1: 82%; --by1: -12%; --bx2: -2%; --by2: 112%; }
         }
@@ -90,7 +82,6 @@
         .logo { height: 40px; }
         .logo-link { display: flex; justify-content: center; }
         [data-theme="light"] .logo { content: url('./assets/MurrMedien_schwarz.png'); }
-        [data-theme="light"] .footer-logo { content: url('./assets/MurrMedien_schwarz.png'); }
 
         .header-left {
             display: flex;
@@ -125,7 +116,7 @@
             gap: 6px;
             width: 44px;
             height: 44px;
-            border-radius: 999px;
+            border-radius: 0;
             background: var(--glass);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(14px);
@@ -143,7 +134,7 @@
             width: 18px;
             height: 1.5px;
             background: var(--text);
-            border-radius: 999px;
+            border-radius: 0;
             transition: transform 0.25s ease, opacity 0.2s ease;
             transform-origin: center;
         }
@@ -181,6 +172,9 @@
             display: block;
             padding: 14px 0;
             font-size: clamp(28px, 6vw, 60px);
+            font-weight: 800;
+            font-style: italic;
+            text-transform: uppercase;
             color: var(--text);
             text-decoration: none;
             text-align: right;
@@ -203,8 +197,12 @@
 
         /* FOOTER */
         footer {
-            border-top: 1px solid var(--hairline);
-            padding: 48px 28px 28px;
+            background: #ffffff;
+            padding: 48px 24px 28px;
+        }
+
+        [data-theme="light"] footer {
+            background: #000000;
         }
 
         .footer-inner {
@@ -212,7 +210,13 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 48px;
-            margin-bottom: 36px;
+            max-width: 1200px;
+            margin: 0 auto 36px;
+        }
+
+        .footer-bottom-inner {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .footer-logo {
@@ -221,6 +225,11 @@
             align-self: flex-start;
             display: block;
             margin-bottom: 16px;
+            content: url('./assets/MurrMedien_schwarz.png');
+        }
+
+        [data-theme="light"] .footer-logo {
+            content: url('./assets/logo.png');
         }
 
         .footer-left { display: flex; flex-direction: column; }
@@ -228,17 +237,21 @@
         .footer-left p {
             margin: 0;
             font-size: 12.5px;
-            color: var(--muted);
+            color: rgba(0,0,0,0.58);
             line-height: 1.85;
         }
 
         .footer-left a {
-            color: var(--muted);
+            color: rgba(0,0,0,0.58);
             text-decoration: none;
             transition: color 0.15s;
         }
 
-        .footer-left a:hover { color: var(--text); }
+        .footer-left a:hover { color: rgba(0,0,0,0.88); }
+
+        [data-theme="light"] .footer-left p { color: rgba(255,255,255,0.58); }
+        [data-theme="light"] .footer-left a { color: rgba(255,255,255,0.58); }
+        [data-theme="light"] .footer-left a:hover { color: rgba(255,255,255,0.88); }
 
         .footer-cols {
             display: flex;
@@ -250,34 +263,39 @@
             font-size: 11px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--muted);
-            opacity: 0.6;
+            color: rgba(0,0,0,0.45);
             margin: 0 0 12px;
         }
+
+        [data-theme="light"] .footer-col-label { color: rgba(255,255,255,0.45); }
 
         .footer-col a {
             display: block;
             font-size: 13px;
-            color: var(--muted);
+            color: rgba(0,0,0,0.58);
             text-decoration: none;
             line-height: 2;
             transition: color 0.15s;
         }
 
-        .footer-col a:hover { color: var(--text); }
+        .footer-col a:hover { color: rgba(0,0,0,0.88); }
+
+        [data-theme="light"] .footer-col a { color: rgba(255,255,255,0.58); }
+        [data-theme="light"] .footer-col a:hover { color: rgba(255,255,255,0.88); }
 
         .footer-bottom {
-            border-top: 1px solid var(--hairline);
+            border-top: 1px solid rgba(0,0,0,0.12);
             padding-top: 20px;
             font-size: 11.5px;
-            color: var(--muted);
-            opacity: 0.65;
+            color: rgba(0,0,0,0.45);
         }
+
+        [data-theme="light"] .footer-bottom { border-top-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.45); }
 
         /* MAIN */
         main {
-            padding: 56px 24px 96px;
-            max-width: 720px;
+            padding: 56px 24px 180px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
         }
@@ -292,7 +310,8 @@
 
         h1 {
             font-size: clamp(30px, 5vw, 44px);
-            font-weight: 400;
+            font-weight: 800;
+            font-style: italic;
             line-height: 1.18;
             margin: 0 0 20px;
         }
@@ -314,18 +333,21 @@
         }
 
         .contact-card {
-            border-radius: 20px;
+            border-radius: 0;
             background: var(--glass);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(14px);
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            align-items: flex-start;
             overflow: hidden;
         }
 
         .contact-avatar {
-            width: 100%;
-            aspect-ratio: 5 / 6;
+            width: 160px;
+            height: 195px;
+            aspect-ratio: unset;
+            flex-shrink: 0;
             object-fit: cover;
             object-position: top;
             display: block;
@@ -340,7 +362,7 @@
 
         .contact-role {
             font-size: 11.5px;
-            color: var(--brand-lightblue);
+            color: var(--muted);
             letter-spacing: 0.04em;
             margin-bottom: 12px;
         }
@@ -417,7 +439,7 @@
             color: var(--text);
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            border-radius: 12px;
+            border-radius: 0;
             padding: 11px 14px;
             outline: none;
             transition: border-color 0.2s, box-shadow 0.2s;
@@ -467,30 +489,29 @@
         .btn-submit {
             display: inline-flex;
             align-self: flex-start;
-            padding: 12px 24px;
-            border-radius: 999px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(14px);
-            color: var(--text);
+            padding: 12px 26px;
+            border-radius: 0;
+            background: transparent;
+            border: 2.5px solid var(--apple-blue);
+            color: var(--apple-blue);
             font-family: "Jost", system-ui, sans-serif;
             font-size: 15px;
             cursor: pointer;
             transition: all 0.2s ease;
+            transform: skewX(-8deg);
         }
 
         .btn-submit:hover {
             background: var(--apple-blue);
             color: #fff;
-            border-color: transparent;
-            box-shadow: 0 12px 34px rgba(166,73,95,0.35);
+            transform: skewX(-8deg) translateY(-1px);
         }
 
         /* ADDRESS BLOCK */
         .address-block {
             margin-top: 52px;
             padding: 24px;
-            border-radius: 16px;
+            border-radius: 0;
             background: var(--glass);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(14px);
@@ -517,21 +538,22 @@
 
         .address-block a {
             display: inline-flex;
-            padding: 9px 16px;
-            border-radius: 999px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            color: var(--text);
+            padding: 9px 18px;
+            border-radius: 0;
+            background: transparent;
+            border: 2.5px solid var(--apple-blue);
+            color: var(--apple-blue);
             text-decoration: none;
             font-size: 13px;
             white-space: nowrap;
             transition: all 0.2s;
+            transform: skewX(-8deg);
         }
 
         .address-block a:hover {
             background: var(--apple-blue);
             color: #fff;
-            border-color: transparent;
+            transform: skewX(-8deg) translateY(-1px);
         }
 
         .footer-social-mobile { display: none; flex-direction: column; margin-top: 16px; }
@@ -605,7 +627,7 @@
     <main>
 
         
-        <h1>Sag hallo.</h1>
+        <h1>KONTAKT</h1>
         <p class="lead">
             Schreib uns direkt
             oder ruf an – wir antworten persönlich und zeitnah.
@@ -708,7 +730,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom"><div class="footer-bottom-inner">
             © 2025 Murr Medien GbR · Gesellschafter: Luca Krämer, Moritz Stoppel
         </div>
     </footer>

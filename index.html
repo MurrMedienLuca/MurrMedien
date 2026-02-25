@@ -213,6 +213,7 @@
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            min-width: 0;
         }
 
         /* HERO */
@@ -310,43 +311,6 @@
 
         .hero-split .hero-ctas {
             margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .hero-split {
-                grid-template-columns: 1fr;
-                gap: 24px;
-                min-height: unset;
-            }
-            .hero-split-img img {
-                aspect-ratio: 4 / 3;
-            }
-            .hero-project {
-                flex: 0 0 85vw;
-            }
-            .leistungen-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .contact-card {
-                flex-direction: column;
-            }
-            .contact-avatar {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 1 / 1;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .leistungen-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* DIVIDER */
@@ -635,6 +599,43 @@
 
         .footer-social-mobile { display: none; flex-direction: column; margin-top: 16px; }
         .footer-social-mobile .footer-social-icons { display: flex; gap: 16px; margin-top: 4px; }
+
+        @media (max-width: 768px) {
+            .hero-split {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                min-height: unset;
+            }
+            .hero-split-img img {
+                aspect-ratio: 4 / 3;
+            }
+            .hero-project {
+                flex: 0 0 85vw;
+            }
+            .leistungen-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .contact-card {
+                flex-direction: column;
+            }
+            .contact-avatar {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .leistungen-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         @media (max-width: 520px) {
             header { padding: 18px; }

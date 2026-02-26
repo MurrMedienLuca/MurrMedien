@@ -600,7 +600,17 @@
         .footer-social-mobile { display: none; flex-direction: column; margin-top: 16px; }
         .footer-social-mobile .footer-social-icons { display: flex; gap: 16px; margin-top: 4px; }
 
+        .projects-counter {
+            display: none;
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 10px;
+            letter-spacing: 0.05em;
+        }
+
         @media (max-width: 768px) {
+            .projects-counter { display: block; }
             .hero-split {
                 grid-template-columns: 1fr;
                 gap: 24px;
@@ -624,7 +634,7 @@
             .contact-avatar {
                 width: 100%;
                 height: auto;
-                aspect-ratio: 1 / 1;
+                aspect-ratio: 4 / 5;
             }
         }
 
@@ -793,6 +803,10 @@
 
                 </div><!-- /.projects-scroll -->
 
+                <div class="projects-counter">
+                    <span id="projects-current">1</span> / <span id="projects-total">3</span>
+                </div>
+
                 <div style="display:flex; justify-content:flex-end; margin-top:20px;">
                     <a class="cta-ghost" href="./kontakt.html">Projekt anfragen</a>
                 </div>
@@ -924,6 +938,22 @@
         }
         applyTheme(mediaQuery.matches);
         mediaQuery.addEventListener("change", (e) => applyTheme(e.matches));
+
+        const projectsScroll = document.querySelector('.projects-scroll');
+        const projectCards = document.querySelectorAll('.hero-project');
+        const projectsCurrent = document.getElementById('projects-current');
+        const projectsTotal = document.getElementById('projects-total');
+        if (projectsScroll && projectCards.length) {
+            projectsTotal.textContent = projectCards.length;
+            projectsScroll.addEventListener('scroll', () => {
+                let closest = 0, minDist = Infinity;
+                projectCards.forEach((card, i) => {
+                    const dist = Math.abs(card.offsetLeft - projectsScroll.scrollLeft);
+                    if (dist < minDist) { minDist = dist; closest = i; }
+                });
+                projectsCurrent.textContent = closest + 1;
+            }, { passive: true });
+        }
 
         const hamburger = document.getElementById("hamburger");
         const nav = document.getElementById("nav");

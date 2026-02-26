@@ -2,6 +2,9 @@ import Project from "@/components/projects/Project";
 import { getPeople, getProjects } from "@/lib/dataprovider";
 import Person from "@/components/people/Person";
 import { ProjectProps } from "@/types/types";
+import Section from "@/components/layout/Section";
+import ProjectList from "@/components/projects/ProjectList";
+import PeopleList from "@/components/people/PeopleList";
 
 
 export default async function Home() {
@@ -10,59 +13,21 @@ export default async function Home() {
 
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <>
+    <Section title="Unsere Projekte" description="Eine Auswahl unserer aktuellen Arbeiten.">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ProjectList projects={projects}/>
+      </div>
+    </Section>
 
-      {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold mb-4">
-          Unsere Projekte
-        </h1>
-
-        <p className="text-gray-600 text-lg">
-          Eine Auswahl unserer aktuellen Arbeiten.
-        </p>
-      </section>
-
-
-      {/* Projektliste */}
-      <section className="max-w-5xl mx-auto px-6 pb-16">
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <Section title="Über uns">
+      <div className="grid gap-6 sm:grid-cols-2">
+        <PeopleList people={people}/>
+      </div>
+    </Section>
 
 
-          {projects.map((project: ProjectProps) => (
-            <Project
-              key={project.id}
-              project={project}
-            />
-          ))}
+</>
 
-        </div>
-
-      </section>
-      <section className="max-w-5xl mx-auto px-6 py-16">
-        <h1 className="text-4xl font-bold mb-4">
-          Über uns
-        </h1>
-      </section>
-
-       {/* Projektliste */}
-       <section className="max-w-5xl mx-auto px-6 pb-16">
-
-<div className="grid gap-6 sm:grid-cols-2">
-
-  {people.map((person: any) => (
-    <Person
-      key={person.id}
-      person={person}
-    />
-  ))}
-
-</div>
-
-</section>
-
-
-    </main>
   );
 }

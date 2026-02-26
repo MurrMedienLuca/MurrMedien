@@ -14,15 +14,13 @@ export default function RootLayout({
     <html lang="en">
     <body>
 
-        <section>
           <div className="flex flex-col min-h-screen">
             <Header/>
-            <main>
+            <main className="min-h-screen bg-gray-50">
               <section>{children}</section>
             </main>
             <Footer/>
           </div>
-        </section>
 
     </body>
   </html>

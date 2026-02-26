@@ -489,16 +489,30 @@
             margin-bottom: 10px;
         }
 
-        .contact-links a {
-            display: block;
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             font-size: 13px;
             color: var(--muted);
             text-decoration: none;
-            line-height: 1.9;
             transition: color 0.15s;
         }
 
-        .contact-links a:hover { color: var(--apple-blue); }
+        .contact-link:hover { color: var(--apple-blue); }
+
+        .contact-link svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
 
         /* FOOTER */
         footer {
@@ -859,8 +873,18 @@
                             <div class="contact-name">Luca Krämer</div>
                             <div class="contact-role">Gesellschafter</div>
                             <div class="contact-links">
-                                <a href="tel:+4915566152739">+49 155 66152739</a>
-                                <a href="mailto:info@murrmedien.de">info@murrmedien.de</a>
+                                <a class="contact-link" href="tel:+4915566152739">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.18 1.22 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                    +49 155 66152739
+                                </a>
+                                <a class="contact-link" href="mailto:info@murrmedien.de">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    info@murrmedien.de
+                                </a>
+                                <a class="contact-link" href="https://www.linkedin.com/in/luca-krämer-5676b11ba/" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M11 10v7M11 13a3 3 0 0 1 6 0v4"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+                                    LinkedIn
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -870,8 +894,18 @@
                             <div class="contact-name">Moritz Stoppel</div>
                             <div class="contact-role">Gesellschafter</div>
                             <div class="contact-links">
-                                <a href="tel:+491797398497">+49 179 739 849 7</a>
-                                <a href="mailto:info@murrmedien.de">info@murrmedien.de</a>
+                                <a class="contact-link" href="tel:+491797398497">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.18 1.22 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                    +49 179 739 849 7
+                                </a>
+                                <a class="contact-link" href="mailto:info@murrmedien.de">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    info@murrmedien.de
+                                </a>
+                                <a class="contact-link" href="https://www.linkedin.com/in/moritz-stoppel-b36081358/" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M11 10v7M11 13a3 3 0 0 1 6 0v4"/><circle cx="7" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+                                    LinkedIn
+                                </a>
                             </div>
                         </div>
                     </div>

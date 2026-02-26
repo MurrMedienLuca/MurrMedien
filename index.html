@@ -602,7 +602,6 @@
 
         .projects-counter {
             display: none;
-            text-align: center;
             font-size: 13px;
             color: var(--muted);
             margin-top: 10px;
@@ -611,6 +610,7 @@
 
         @media (max-width: 768px) {
             .projects-counter { display: block; }
+            .hero-split .hero-ctas { justify-content: center; }
             .hero-split {
                 grid-template-columns: 1fr;
                 gap: 24px;
@@ -803,12 +803,11 @@
 
                 </div><!-- /.projects-scroll -->
 
-                <div class="projects-counter">
-                    <span id="projects-current">1</span> / <span id="projects-total">3</span>
-                </div>
-
-                <div style="display:flex; justify-content:flex-end; margin-top:20px;">
-                    <a class="cta-ghost" href="./kontakt.html">Projekt anfragen</a>
+                <div style="display:flex; align-items:center; margin-top:20px;">
+                    <div class="projects-counter" style="margin-top:0;">
+                        <span id="projects-current">1</span> / <span id="projects-total">3</span>
+                    </div>
+                    <a class="cta-ghost" href="./kontakt.html" style="margin-left:auto;">Projekt anfragen</a>
                 </div>
             </section>
 

@@ -1,16 +1,24 @@
 [
   {
     "uuid": 1,
-    "fullTitle": "Vereinsgaststätte Rohrbachtal",
+    "fullTitle": "SG Oppenweiler Strümpfelbach",
     "desc": "Ein moderner Webauftritt für den lokalen Sportverein – übersichtlich, mobil optimiert und einfach selbst pflegbar. Von der Struktur bis zum fertigen Launch aus einer Hand.",
-    "img": "/images/vrm.png",
-    "link": "https://www.vereinsgaststaette-rohrbachtal.de/"
+    "img": "/images/sgos.png",
+    "link": "https://www.sgos.de/"
   },
   {
     "uuid": 2,
-    "fullTitle": "SG Oppenweiler Strümpfelbach JSON",
+    "fullTitle": "Vereinsgaststätte Rohrbachtal",
     "desc": "Besonderes Augenmerk lag auf der in das CMS integrierten Speisekarte, die es ermöglicht, Änderungen schnell und unkompliziert – auch mobil über das Smartphone vorzunehmen.",
-    "img": "/images/sgos.png",
+    "img": "/images/vrm.png",
+    "link": "https://www.vereinsgaststaette-rohrbachtal.de/"
+  },
+
+  {
+    "uuid": 3,
+    "fullTitle": "SG Oppenweiler Strümpfelbach",
+    "desc": "BEntwicklung eines Corporate Designs sowie darauf aufbauend die Konzeption und Umsetzung einer Sponsorenmappe für die SG Oppenweiler-Strümpfelbach.",
+    "img": "/images/Mockup_Sponsorenmappe.png",
     "link": "https://www.sgos.de/"
   }
 ]

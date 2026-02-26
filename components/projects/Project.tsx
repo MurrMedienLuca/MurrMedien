@@ -2,6 +2,7 @@
 import React from "react";
 import {
     Card,
+    CardContent,
     CardDescription,
     CardFooter,
     CardHeader,
@@ -17,7 +18,7 @@ type ProjectProps2 = {
 
   const Project = ({ project }: ProjectProps2) => {
   return (
-<Card key={project.id} className="relative mx-auto w-full max-w-sm pt-0 rounded-xl overflow-hidden">
+<Card key={project.id} className="relative mx-auto w-full max-w-sm pt-0 rounded-xl overflow-hidden h-full flex flex-col">
   <div className="absolute inset-0 z-30 aspect-video bg-black/35 rounded-t-xl" />
   <img
     src={project.imageUrl}
@@ -28,10 +29,12 @@ type ProjectProps2 = {
   <CardHeader>
 
     <CardTitle>  {project.title}</CardTitle>
-    <CardDescription>
-    {project.description}
-    </CardDescription>
+
   </CardHeader>
+  <CardContent className="flex-1">
+  {project.description}
+  </CardContent>
+
 
   <CardFooter>
   <Link href={project.link} target="_blank" className="w-full">

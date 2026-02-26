@@ -27,7 +27,8 @@ export default async function Home() {
       {/* Projektliste */}
       <section className="max-w-5xl mx-auto px-6 pb-16">
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
 
           {projects.map((project: ProjectProps) => (
             <Project

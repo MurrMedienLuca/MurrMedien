@@ -15,3 +15,9 @@ export interface ProjectProps {
     role: string;
     img: string;
   }
+
+  export interface ServiceProps {
+    id: number;
+    title: string;
+    description: string;
+  }

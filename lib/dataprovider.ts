@@ -1,7 +1,7 @@
 
 import { getPeopleFromWordpress, getProjectsFromWordpress } from "./wordpress";
-import { getPeopleFromJson, getProjectsFromJson } from "./json";
-import { PersonProps, ProjectProps } from "@/types/types";
+import { getPeopleFromJson, getProjectsFromJson, getServicesFromJson } from "./json";
+import { PersonProps, ProjectProps, ServiceProps } from "@/types/types";
 
 export type DataSource = "JSON" | "WORDPRESS";
 
@@ -19,4 +19,12 @@ export async function getPeople(): Promise<PersonProps[]> {
     return await getPeopleFromWordpress();
   }
   return getPeopleFromJson();
+}
+
+
+export async function getServices(): Promise<ServiceProps[]> {
+  if (DATA_SOURCE === "WORDPRESS") {
+    throw new Error("Service mapper not implemented for WORDPRESS")
+  }
+  return getServicesFromJson();
 }

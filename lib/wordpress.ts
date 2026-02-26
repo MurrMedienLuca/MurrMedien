@@ -1,4 +1,5 @@
-import { mapWpPerson, mapWpProject } from "@/mappers/projectmapper";
+import { mapWpPerson } from "@/mappers/personmapper";
+import { mapWpProject } from "@/mappers/projectmapper";
 import { ProjectProps } from "@/types/types";
 
 

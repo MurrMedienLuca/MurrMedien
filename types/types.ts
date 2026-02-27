@@ -14,6 +14,7 @@ export interface ProjectProps {
     phoneNumber: string;
     role: string;
     img: string;
+    linkedIn: string;
   }
 
   export interface ServiceProps {

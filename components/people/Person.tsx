@@ -9,6 +9,7 @@ import {
   } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { PersonProps } from "@/types/types";
+import Link from "next/link";
 type PersonProps2 = {
   person: PersonProps;
 };
@@ -43,6 +44,9 @@ type PersonProps2 = {
 <p className="">
         {person.phoneNumber}
 </p>
+<Link href={person.linkedIn} target="_blank" className="w-full">
+  LinkedIn
+  </Link>
     </CardDescription>
   </CardHeader>
 

@@ -10,6 +10,7 @@ export const mapWpPerson= async (wpData: any): Promise<PersonProps> => ({
   phoneNumber: "",
   img: await getImageUrl(wpData.acf.bild),
   role: wpData.acf.role,
+  linkedIn: wpData.acf.linkedin
 });
 
 // Funktion zum Holen der Bild-URL
@@ -28,5 +29,6 @@ export const mapJsonPerson = (json: any): PersonProps => ({
   img: json.img,
   email: json.email,
   phoneNumber: json.phoneNumber,
-  role: json.role
+  role: json.role,
+  linkedIn: json.linkedIn
 });

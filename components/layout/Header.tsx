@@ -55,9 +55,10 @@ export default function Header() {
         <Link href="/" className="flex items-center ">
           <Image
             src="/images/logo.png"
+            className="h-12 w-auto"
             alt="Murr Medien"
             width={140}
-            height={40}
+            height={100}
             priority
           />
         </Link>

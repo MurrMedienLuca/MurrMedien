@@ -7,7 +7,7 @@ export const mapWpPerson= async (wpData: any): Promise<PersonProps> => ({
   firstName: wpData.acf.firstName,
   lastName: wpData.acf.lastName,
   email: wpData.acf.email,
-  phoneNumber: "",
+  phoneNumber: wpData.acf.phonenumber,
   img: await getImageUrl(wpData.acf.bild),
   role: wpData.acf.role,
   linkedIn: wpData.acf.linkedin

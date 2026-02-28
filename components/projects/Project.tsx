@@ -1,41 +1,35 @@
-"use client"
-import React from "react"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ProjectProps } from "@/types/types"
 import Link from "next/link"
-type ProjectProps2 = {
+
+type ProjectComponentProps = {
   project: ProjectProps
 }
 
-const Project = ({ project }: ProjectProps2) => {
+const Project = ({ project }: ProjectComponentProps) => {
   return (
-    <Card
-      key={project.id}
-      className="relative mx-auto w-full max-w-sm pt-0 rounded-xl overflow-hidden h-full flex flex-col"
-    >
-      <div className="absolute inset-0 z-30 aspect-video bg-black/35 rounded-t-xl" />
-      <img
-        src={project.imageUrl}
-        alt="Event cover"
-        className="relative z-20 aspect-video w-full object-cover rounded-t-xl"
-      />
+    <Card className="group mx-auto w-full max-w-sm pt-0 overflow-hidden h-full flex flex-col">
+      <div className="overflow-hidden aspect-video">
+        <img
+          src={project.imageUrl}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
 
       <CardHeader>
-        <CardTitle> {project.title}</CardTitle>
+        <CardTitle>{project.title}</CardTitle>
       </CardHeader>
-      <CardContent className="flex-1">{project.description}</CardContent>
+      <CardContent className="flex-1 text-sm text-muted-foreground">
+        {project.description}
+      </CardContent>
 
       <CardFooter>
-        <Link href={project.link} target="_blank" className="w-full">
-          <Button className="w-full">View Project</Button>
+        <Link href={project.link} target="_blank" rel="noopener noreferrer" className="w-full">
+          <Button variant="outline" className="w-full">
+            Zum Projekt ↗
+          </Button>
         </Link>
       </CardFooter>
     </Card>

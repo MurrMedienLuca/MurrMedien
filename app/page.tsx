@@ -1,8 +1,11 @@
 import { getPeople, getProjects, getServices } from "@/lib/dataprovider"
-import Section from "@/components/layout/Section"
 import ProjectList from "@/components/projects/ProjectList"
 import PeopleList from "@/components/people/PeopleList"
 import ServiceList from "@/components/services/ServiceList"
+import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import Link from "next/link"
 
 export default async function Home() {
   const projects = await getProjects()
@@ -10,23 +13,93 @@ export default async function Home() {
   const services = await getServices()
 
   return (
-    <>
-      <Section title="Unsere Projekte" description="Eine Auswahl unserer aktuellen Arbeiten.">
+    <main className="max-w-5xl mx-auto px-6 py-16 space-y-16">
+      {/* Hero */}
+      <section className="grid md:grid-cols-[2fr_3fr] gap-12 md:gap-20 items-center min-h-[60vh]">
+        <div className="overflow-hidden rounded-xl aspect-2/3">
+          <Image
+            src="/images/moritz_lachen.jpeg"
+            alt="Murr Medien Team"
+            width={600}
+            height={900}
+            className="w-full h-full object-cover object-top"
+            priority
+          />
+        </div>
+        <div className="space-y-6">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Murr Medien</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+            Medien, die ein
+            <br />
+            Lächeln hinterlassen.
+          </h1>
+          <p className="text-base leading-relaxed text-muted-foreground max-w-sm">
+            Wir machen Medien, die zu euch passen. Mit Herzblut, ohne Schnickschnack und auf
+            Augenhöhe.
+          </p>
+          <Button asChild size="lg">
+            <Link href="/kontakt">Termin vereinbaren</Link>
+          </Button>
+        </div>
+      </section>
+
+      <Separator />
+
+      {/* Projekte */}
+      <section className="space-y-8">
+        <div className="flex items-center justify-between">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+            Aktuelle Projekte
+          </p>
+          <Link
+            href="/kontakt"
+            className="text-sm text-muted-foreground hover:text-foreground transition"
+          >
+            Projekt anfragen →
+          </Link>
+        </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <ProjectList projects={projects} />
         </div>
-      </Section>
+      </section>
 
-      <Section title="Über uns">
-        <div className="grid gap-6 sm:grid-cols-2">
-          <PeopleList people={people} />
+      <Separator />
+
+      {/* Services */}
+      <section className="space-y-8">
+        <div className="flex items-center justify-between">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">Was wir machen</p>
+          <Link
+            href="/ueber-uns"
+            className="text-sm text-muted-foreground hover:text-foreground transition"
+          >
+            Mehr über uns →
+          </Link>
         </div>
-      </Section>
-      <Section title="Services">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <ServiceList services={services} />
         </div>
-      </Section>
-    </>
+      </section>
+
+      <Separator />
+
+      {/* Team */}
+      <section className="space-y-8">
+        <div className="flex items-center justify-between">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">
+            Direkt ansprechen
+          </p>
+          <Link
+            href="/kontakt"
+            className="text-sm text-muted-foreground hover:text-foreground transition"
+          >
+            Kontakt aufnehmen →
+          </Link>
+        </div>
+        <div className="grid gap-8 sm:grid-cols-2 max-w-lg">
+          <PeopleList people={people} />
+        </div>
+      </section>
+    </main>
   )
 }

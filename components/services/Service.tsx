@@ -1,9 +1,5 @@
-"use client"
-
-import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { PersonProps, ServiceProps } from "@/types/types"
-import { Button } from "../ui/button"
-import { Card } from "@/components/ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ServiceProps } from "@/types/types"
 
 type ServiceProps2 = {
   service: ServiceProps

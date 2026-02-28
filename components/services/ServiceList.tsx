@@ -1,7 +1,4 @@
-"use client"
-
 import { ServiceProps } from "@/types/types"
-import React from "react"
 import Service from "./Service"
 
 type ServiceListProps = {

@@ -1,5 +1,3 @@
-"use client"
-
 import { PersonProps } from "@/types/types"
 import Person from "./Person"
 

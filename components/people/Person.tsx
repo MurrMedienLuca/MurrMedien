@@ -1,45 +1,54 @@
-"use client"
-
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { PersonProps } from "@/types/types"
 import Link from "next/link"
-type PersonProps2 = {
+
+type PersonComponentProps = {
   person: PersonProps
 }
 
-const Person = ({ person }: PersonProps2) => {
+const Person = ({ person }: PersonComponentProps) => {
   return (
-    <Card className="relative mx-auto w-full max-w-sm pt-0 rounded-xl overflow-hidden">
-      {/* Overlay */}
-      <div className="absolute inset-0 z-30 aspect-[3/4] bg-black/35 rounded-t-xl" />
-
+    <Card className="group overflow-hidden pt-0">
       {/* Bild */}
-      <img
-        src={person.img}
-        alt="Person portrait"
-        className="relative z-20 w-full aspect-[3/4] object-cover rounded-t-xl"
-      />
+      <div className="overflow-hidden aspect-[3/4]">
+        <img
+          src={person.img}
+          alt={`${person.firstName} ${person.lastName}`}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
 
-      <CardHeader>
+      {/* Name + Rolle */}
+      <CardHeader className="pb-2">
         <CardTitle>
           {person.firstName} {person.lastName}
         </CardTitle>
-        <CardDescription>
-          <p className="">{person.role}</p>
-          <br />
-          <p className="">{person.email}</p>
-          <p className="">{person.phoneNumber}</p>
-          <Link href={person.linkedIn} target="_blank" className="w-full">
-            LinkedIn
-          </Link>
-        </CardDescription>
+        <CardDescription>{person.role}</CardDescription>
       </CardHeader>
 
-      <CardFooter>
-        {" "}
-        <Button className="w-full">View Project</Button>
-      </CardFooter>
+      {/* Kontakt */}
+      <CardContent className="text-sm space-y-1">
+        <Link
+          href={`mailto:${person.email}`}
+          className="block text-muted-foreground hover:text-foreground transition"
+        >
+          {person.email}
+        </Link>
+        <Link
+          href={`tel:${person.phoneNumber.replace(/\s/g, "")}`}
+          className="block text-muted-foreground hover:text-foreground transition"
+        >
+          {person.phoneNumber}
+        </Link>
+        <Link
+          href={person.linkedIn}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-muted-foreground hover:text-foreground transition"
+        >
+          LinkedIn →
+        </Link>
+      </CardContent>
     </Card>
   )
 }

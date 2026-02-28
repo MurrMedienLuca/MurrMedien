@@ -7,7 +7,6 @@ export default function Footer() {
     <footer className="border-t bg-background">
       <div className="container mx-auto px-6 py-14">
         <div className="grid gap-10 md:grid-cols-3">
-          
           {/* Logo + Kontakt */}
           <div className="space-y-4">
             <Image
@@ -30,10 +29,7 @@ export default function Footer() {
               >
                 info@murrmedien.de
               </Link>
-              <Link
-                href="tel:+4915566152739"
-                className="block hover:text-foreground transition"
-              >
+              <Link href="tel:+4915566152739" className="block hover:text-foreground transition">
                 +49 155 66152739
               </Link>
             </div>

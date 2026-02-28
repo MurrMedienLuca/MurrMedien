@@ -1,52 +1,45 @@
 "use client"
-import React from "react";
+import React from "react"
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
-import { Button } from "@/components/ui/button";
-import { ProjectProps } from "@/types/types";
-import Link from "next/link";
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ProjectProps } from "@/types/types"
+import Link from "next/link"
 type ProjectProps2 = {
-  project: ProjectProps;
-};
+  project: ProjectProps
+}
 
-
-  const Project = ({ project }: ProjectProps2) => {
+const Project = ({ project }: ProjectProps2) => {
   return (
-<Card key={project.id} className="relative mx-auto w-full max-w-sm pt-0 rounded-xl overflow-hidden h-full flex flex-col">
-  <div className="absolute inset-0 z-30 aspect-video bg-black/35 rounded-t-xl" />
-  <img
-    src={project.imageUrl}
-    alt="Event cover"
-    className="relative z-20 aspect-video w-full object-cover rounded-t-xl"
-  />
+    <Card
+      key={project.id}
+      className="relative mx-auto w-full max-w-sm pt-0 rounded-xl overflow-hidden h-full flex flex-col"
+    >
+      <div className="absolute inset-0 z-30 aspect-video bg-black/35 rounded-t-xl" />
+      <img
+        src={project.imageUrl}
+        alt="Event cover"
+        className="relative z-20 aspect-video w-full object-cover rounded-t-xl"
+      />
 
-  <CardHeader>
+      <CardHeader>
+        <CardTitle> {project.title}</CardTitle>
+      </CardHeader>
+      <CardContent className="flex-1">{project.description}</CardContent>
 
-    <CardTitle>  {project.title}</CardTitle>
+      <CardFooter>
+        <Link href={project.link} target="_blank" className="w-full">
+          <Button className="w-full">View Project</Button>
+        </Link>
+      </CardFooter>
+    </Card>
+  )
+}
 
-  </CardHeader>
-  <CardContent className="flex-1">
-  {project.description}
-  </CardContent>
-
-
-  <CardFooter>
-  <Link href={project.link} target="_blank" className="w-full">
-    <Button className="w-full">
-      View Project
-    </Button>
-  </Link>
-  </CardFooter>
-</Card>
-  );
-};
-
-export default Project;
-
-
+export default Project

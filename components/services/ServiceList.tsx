@@ -12,10 +12,7 @@ const ServiceList = ({ services }: ServiceListProps) => {
   return (
     <>
       {services.map((service) => (
-        <Service
-          key={service.id}
-          service={service}
-        />
+        <Service key={service.id} service={service} />
       ))}
     </>
   )

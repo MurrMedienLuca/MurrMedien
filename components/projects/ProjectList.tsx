@@ -12,10 +12,7 @@ const ProjectList = ({ projects }: ProjectListProps) => {
   return (
     <>
       {projects.map((project) => (
-        <Project
-          key={project.id}
-          project={project}
-        />
+        <Project key={project.id} project={project} />
       ))}
     </>
   )

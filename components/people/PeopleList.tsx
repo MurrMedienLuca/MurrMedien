@@ -11,10 +11,7 @@ const PeopleList = ({ people }: PeopleListProps) => {
   return (
     <>
       {people.map((person) => (
-        <Person
-          key={person.id}
-          person={person}
-        />
+        <Person key={person.id} person={person} />
       ))}
     </>
   )

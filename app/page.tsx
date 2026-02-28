@@ -4,6 +4,7 @@ import PeopleList from "@/components/people/PeopleList"
 import ServiceList from "@/components/services/ServiceList"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
+import Section from "@/components/layout/Section"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -46,60 +47,50 @@ export default async function Home() {
       <Separator />
 
       {/* Projekte */}
-      <section className="space-y-8">
-        <div className="flex items-center justify-between">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">
-            Aktuelle Projekte
-          </p>
-          <Link
-            href="/kontakt"
-            className="text-sm text-muted-foreground hover:text-foreground transition"
-          >
+      <Section
+        label="Aktuelle Projekte"
+        action={
+          <Link href="/kontakt" className="text-sm text-muted-foreground hover:text-foreground transition">
             Projekt anfragen →
           </Link>
-        </div>
+        }
+      >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <ProjectList projects={projects} />
         </div>
-      </section>
+      </Section>
 
       <Separator />
 
       {/* Services */}
-      <section className="space-y-8">
-        <div className="flex items-center justify-between">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">Was wir machen</p>
-          <Link
-            href="/ueber-uns"
-            className="text-sm text-muted-foreground hover:text-foreground transition"
-          >
+      <Section
+        label="Was wir machen"
+        action={
+          <Link href="/ueber-uns" className="text-sm text-muted-foreground hover:text-foreground transition">
             Mehr über uns →
           </Link>
-        </div>
+        }
+      >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <ServiceList services={services} />
         </div>
-      </section>
+      </Section>
 
       <Separator />
 
       {/* Team */}
-      <section className="space-y-8">
-        <div className="flex items-center justify-between">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">
-            Direkt ansprechen
-          </p>
-          <Link
-            href="/kontakt"
-            className="text-sm text-muted-foreground hover:text-foreground transition"
-          >
+      <Section
+        label="Direkt ansprechen"
+        action={
+          <Link href="/kontakt" className="text-sm text-muted-foreground hover:text-foreground transition">
             Kontakt aufnehmen →
           </Link>
-        </div>
+        }
+      >
         <div className="grid gap-8 sm:grid-cols-2 max-w-lg">
           <PeopleList people={people} />
         </div>
-      </section>
+      </Section>
     </main>
   )
 }

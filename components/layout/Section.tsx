@@ -15,12 +15,16 @@ const Section = ({ children, className, label, action, title, description }: Sec
     <section className={cn("space-y-8", className)}>
       {(label || action) && (
         <div className="flex items-center justify-between">
-          {label && <p className="text-xs uppercase tracking-widest text-muted-foreground">{label}</p>}
+          {label && (
+            <p className="text-xs uppercase tracking-widest text-muted-foreground">{label}</p>
+          )}
           {action}
         </div>
       )}
       {title && <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>}
-      {description && <p className="text-base leading-relaxed text-muted-foreground">{description}</p>}
+      {description && (
+        <p className="text-base leading-relaxed text-muted-foreground">{description}</p>
+      )}
       {children}
     </section>
   )

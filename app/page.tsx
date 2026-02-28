@@ -50,7 +50,10 @@ export default async function Home() {
       <Section
         label="Aktuelle Projekte"
         action={
-          <Link href="/kontakt" className="text-sm text-muted-foreground hover:text-foreground transition">
+          <Link
+            href="/kontakt"
+            className="text-sm text-muted-foreground hover:text-foreground transition"
+          >
             Projekt anfragen →
           </Link>
         }
@@ -66,7 +69,10 @@ export default async function Home() {
       <Section
         label="Was wir machen"
         action={
-          <Link href="/ueber-uns" className="text-sm text-muted-foreground hover:text-foreground transition">
+          <Link
+            href="/ueber-uns"
+            className="text-sm text-muted-foreground hover:text-foreground transition"
+          >
             Mehr über uns →
           </Link>
         }
@@ -82,7 +88,10 @@ export default async function Home() {
       <Section
         label="Direkt ansprechen"
         action={
-          <Link href="/kontakt" className="text-sm text-muted-foreground hover:text-foreground transition">
+          <Link
+            href="/kontakt"
+            className="text-sm text-muted-foreground hover:text-foreground transition"
+          >
             Kontakt aufnehmen →
           </Link>
         }
